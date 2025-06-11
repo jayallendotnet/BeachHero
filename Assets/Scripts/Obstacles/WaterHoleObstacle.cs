@@ -24,7 +24,6 @@ namespace BeachHero
         private Coroutine cycloneCoroutine;
         private int whirlpoolDistanceID = Shader.PropertyToID("_WhirlpoolDistance");
         private int whirlpoolPositionID = Shader.PropertyToID("_WhirlpoolPosition");
-        private int whirlpoolEnableID = Shader.PropertyToID("_IsWhirlpoolEnable");
 
         public void Init(WaterHoleObstacleData obstacleData)
         {
@@ -36,18 +35,11 @@ namespace BeachHero
             //water Shader WhirlPool Data
             waterMaterial.SetVector(whirlpoolPositionID, obstacleData.shaderPosition);
             waterMaterial.SetFloat(whirlpoolDistanceID, obstacleData.scale / 20f);
-            waterMaterial.SetFloat(whirlpoolEnableID, 1f);
         }
 
         public override void Hit()
         {
             base.Hit();
-        }
-        public override void ResetObstacle()
-        {
-            base.ResetObstacle();
-            waterMaterial.SetFloat(whirlpoolEnableID,0f);
-            waterMaterial.SetFloat(whirlpoolDistanceID, 0f); // Reset whirlpool distance
         }
 
         public void OnPlayerHit(Transform playerTransform)

@@ -4,14 +4,11 @@ namespace BeachHero
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private Animator boatAnimator;
-        [SerializeField] private Animator characterAnimator;
-        [SerializeField] private ParticleSystem magnetParticle;
         [SerializeField] private float movementSpeed;
         [SerializeField] private float rotationSpeed;
+        [SerializeField] private Animator boatAnimator;
+        [SerializeField] private Animator characterAnimator;
         [SerializeField] private float speedMultiplier;
-
-
         private Vector3[] pointsList;
         private bool canStartMovement;
         private int nextPointIndex;
@@ -79,8 +76,6 @@ namespace BeachHero
         public void StopMovement()
         {
             canStartMovement = false;
-            magnetParticle.Stop();
-            magnetParticle.gameObject.SetActive(false);
         }
         private void OnBoatCollided()
         {
@@ -90,11 +85,6 @@ namespace BeachHero
         {
             movementSpeed *= speedMultiplier;
             rotationSpeed *= speedMultiplier;
-        }
-        public void ActivateCoinMagnetPowerup()
-        {
-            magnetParticle.gameObject.SetActive(true);
-            magnetParticle.Play();
         }
         public void StartMovement(Vector3[] pointsList)
         {
