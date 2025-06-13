@@ -248,29 +248,26 @@ namespace BeachHero
             }
 
             //Obstacles
-            //Obstacles
             foreach (var obstacleList in obstaclesDictionary.Values)
             {
                 foreach (var obstacle in obstacleList)
                 {
-                    switch (obstacle.ObstacleType)
+                    if (obstacle.ObstacleType == ObstacleType.Shark)
                     {
-                        case ObstacleType.Shark:
-                            poolManager.SharkPool.ReturnObject(obstacle.gameObject);
-                            break;
-                        case ObstacleType.Eel:
-                            poolManager.EelPool.ReturnObject(obstacle.gameObject);
-                            break;
-                        case ObstacleType.WaterHole:
-                            obstacle.ResetObstacle();
-                            poolManager.WaterHolePool.ReturnObject(obstacle.gameObject);
-                            break;
-                        case ObstacleType.Rock:
-                            poolManager.RockPool.ReturnObject(obstacle.gameObject);
-                            break;
-                        case ObstacleType.Barrel:
-                            poolManager.BarrelPool.ReturnObject(obstacle.gameObject);
-                            break;
+                        poolManager.SharkPool.ReturnObject(obstacle.gameObject);
+                    }
+                    else if (obstacle.ObstacleType == ObstacleType.Eel)
+                    {
+                        poolManager.EelPool.ReturnObject(obstacle.gameObject);
+                    }
+                    else if (obstacle.ObstacleType == ObstacleType.WaterHole)
+                    {
+                        obstacle.ResetObstacle();
+                        poolManager.WaterHolePool.ReturnObject(obstacle.gameObject);
+                    }
+                    else if (obstacle.ObstacleType == ObstacleType.Rock)
+                    {
+                        poolManager.RockPool.ReturnObject(obstacle.gameObject);
                     }
                 }
             }
