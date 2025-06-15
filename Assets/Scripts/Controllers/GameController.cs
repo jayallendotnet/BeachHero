@@ -11,8 +11,6 @@ namespace BeachHero
         [SerializeField] private SaveController saveController;
         [SerializeField] private PowerupController powerupController;
         [SerializeField] private TutorialController tutorialController;
-        [SerializeField] private StoreController storeController;
-        [SerializeField] private SkinController skinController;
 
         [Tooltip("The Index Starts from 0")]
         private int currentLevelIndex;
@@ -26,7 +24,6 @@ namespace BeachHero
         public LevelController LevelController => levelController;
         public PowerupController PowerupController => powerupController;
         public TutorialController TutorialController => tutorialController;
-        public StoreController StoreController => storeController;
         #endregion
 
         #region Unity Methods
