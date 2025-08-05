@@ -66,7 +66,9 @@ namespace BeachHero
                 levelDatas[i++].MarkComplete();
             }
             if (i < levelDatas.Count)
+            {
                 levelDatas[i].MarkCurrentLevel();
+            }
         }
     }
 
